@@ -17,6 +17,7 @@ in
     inputs.disko.nixosModules.disko
     inputs.colmena.nixosModules.deploymentOptions
     ./core.nix
+    ./autoupgrade.nix
     ./disk.nix
     ./users.nix
     ./acme.nix
