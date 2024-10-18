@@ -15,7 +15,6 @@ in
     inputs.srvos.nixosModules.mixins-terminfo
     inputs.srvos.nixosModules.hardware-hetzner-cloud
     inputs.disko.nixosModules.disko
-    inputs.colmena.nixosModules.deploymentOptions
     ./core.nix
     ./autoupgrade.nix
     ./disk.nix
