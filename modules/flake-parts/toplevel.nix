@@ -41,7 +41,6 @@ in
 {
   imports = [
     inputs.nixos-unified.flakeModules.default
-    inputs.agenix-rekey.flakeModule
   ];
 
   flake = {

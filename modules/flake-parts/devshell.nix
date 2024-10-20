@@ -18,7 +18,7 @@
           { package = pkgs.nix; }
           { package = pkgs.nixos-rebuild; }
           { package = pkgs.hcloud; }
-          { package = inputs'.agenix-rekey.packages.default; }
+          { package = inputs'.agenix.packages.default; }
           { package = inputs'.nixos-anywhere.packages.nixos-anywhere; }
         ];
       };

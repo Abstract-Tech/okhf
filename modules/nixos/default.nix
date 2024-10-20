@@ -15,12 +15,13 @@ in
     inputs.srvos.nixosModules.mixins-terminfo
     inputs.srvos.nixosModules.hardware-hetzner-cloud
     inputs.disko.nixosModules.disko
+    inputs.agenix.nixosModules.default
     ./core.nix
     ./autoupgrade.nix
     ./disk.nix
     ./users.nix
     ./acme.nix
-    # ./secrets.nix
+    ./network.nix
   ];
   nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "24.05";
