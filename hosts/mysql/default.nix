@@ -1,4 +1,9 @@
-{ flake, config, pkgs, ... }:
+{
+  flake,
+  config,
+  pkgs,
+  ...
+}:
 
 let
   inherit (flake) inputs;
@@ -8,7 +13,6 @@ in
 {
   imports = [
     self.nixosModules.default
-    ./networking.nix
   ];
 
   age.secrets."mysql.age" = {

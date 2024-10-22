@@ -18,6 +18,7 @@
           { package = pkgs.nix; }
           { package = pkgs.nixos-rebuild; }
           { package = pkgs.hcloud; }
+          { package = pkgs.opentofu; }
           { package = inputs'.agenix.packages.default; }
           { package = inputs'.nixos-anywhere.packages.nixos-anywhere; }
         ];

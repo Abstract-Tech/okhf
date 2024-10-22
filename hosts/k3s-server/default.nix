@@ -1,4 +1,10 @@
-{ flake, config, lib, pkgs, ... }:
+{
+  flake,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   inherit (flake) inputs;
@@ -17,10 +23,11 @@ let
     "--disable=traefik"
     "--disable-cloud-controller"
   ];
-  kubernetesMakeKubeconfig = let
-    kc = "${pkgs.kubectl}/bin/kubectl";
-    remarshal = "${pkgs.remarshal}/bin/remarshal";
-  in
+  kubernetesMakeKubeconfig =
+    let
+      kc = "${pkgs.kubectl}/bin/kubectl";
+      remarshal = "${pkgs.remarshal}/bin/remarshal";
+    in
     pkgs.writeScriptBin "kubernetes-make-kubeconfig" ''
       #!${pkgs.stdenv.shell} -e
       name=''${1:-$USER}
@@ -69,7 +76,7 @@ in
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_13;
-    ensureDatabases = ["kubernetes"];
+    ensureDatabases = [ "kubernetes" ];
     ensureUsers = [
       {
         name = "kubernetes";
@@ -87,11 +94,11 @@ in
   };
 
   systemd.services.set-k3s-config-permissions = {
-    requires = ["k3s.service"];
-    partOf = ["k3s.service"];
-    wantedBy = ["k3s.service"];
-    after = ["k3s.service"];
-    path = [pkgs.acl];
+    requires = [ "k3s.service" ];
+    partOf = [ "k3s.service" ];
+    wantedBy = [ "k3s.service" ];
+    after = [ "k3s.service" ];
+    path = [ pkgs.acl ];
     script = ''
       echo "Grant abstract access to k3s config file..."
       setfacl -m g:k3s-admin:r ${defaultKubeconfig}

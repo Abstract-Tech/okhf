@@ -39,9 +39,7 @@ let
       { };
 in
 {
-  imports = [
-    inputs.nixos-unified.flakeModules.default
-  ];
+  imports = [ inputs.nixos-unified.flakeModules.default ];
 
   flake = {
     nixosConfigurations = forAllNixFiles "${self}/hosts" (

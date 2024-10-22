@@ -1,13 +1,8 @@
+{ lib, pkgs, ... }:
 {
-  lib,
-  pkgs,
-  ...
-}: {
   security.apparmor.enable = true;
 
-  environment.etc."apparmor.d" = lib.mkForce {
-    source = "${pkgs.apparmor-profiles}/etc/apparmor.d";
-  };
+  environment.etc."apparmor.d" = lib.mkForce { source = "${pkgs.apparmor-profiles}/etc/apparmor.d"; };
 
   # Containerd wants it https://github.com/k3s-io/containerd/blob/57c526b0002c40137811579988b3f85c8b39dd92/pkg/apparmor/apparmor_linux.go#L38
   system.activationScripts.linkApparmorParser = ''

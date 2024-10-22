@@ -22,6 +22,7 @@ in
     ./users.nix
     ./acme.nix
     ./network.nix
+    ./containers.nix
   ];
   nixpkgs.hostPlatform = "x86_64-linux";
   system.stateVersion = "24.05";
